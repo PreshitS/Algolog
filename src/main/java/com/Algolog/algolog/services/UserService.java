@@ -29,5 +29,20 @@ public class UserService {
         return user;
     }
 
+    public User updateUser(Integer id, User user){
+        User newUser = this.userRepo.findById(id).orElseThrow(() -> new RuntimeException("User not found with id: " + id));
+        newUser.setEmail(user.getEmail());
+        newUser.setName(user.getName());
+        newUser.setPassword(user.getPassword());
+
+        this.userRepo.save(newUser);
+
+        return newUser;
+    }
+
+    public void deleteUser(Integer id){
+        this.userRepo.deleteById(id);
+    }
+
 }
 
