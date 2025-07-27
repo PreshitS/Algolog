@@ -52,4 +52,7 @@ public class User {
         return postIds;
     }
 
+    @Column(nullable = false)
+    private int totalScore;
+
 }

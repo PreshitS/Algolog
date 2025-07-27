@@ -42,4 +42,7 @@ public class Post {
     @JsonIgnoreProperties("posts")
     private User user;
 
+    @Column(nullable = false)
+    private int score;
+
 }

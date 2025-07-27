@@ -24,9 +24,9 @@ public class PostController {
     @Autowired
     private PostService postService;
 
-    @PostMapping("/user/{id}")
-    public ResponseEntity<Post> createPost(@PathVariable Integer id, @RequestBody Post post){
-        Post createdPost = this.postService.createPost(id, post);
+    @PostMapping("/user/{userId}")
+    public ResponseEntity<Post> createPost(@PathVariable Integer userId, @RequestBody Post post){
+        Post createdPost = this.postService.createPost(userId, post);
         return new ResponseEntity<>(createdPost, HttpStatus.OK);
     }
 

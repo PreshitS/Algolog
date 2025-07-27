@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.Algolog.algolog.entities.Leaderboard;
 import com.Algolog.algolog.entities.User;
 import com.Algolog.algolog.services.UserService;
 
@@ -51,6 +52,12 @@ public class UserController {
     @DeleteMapping("/{id}")
     public void deleteUser(@PathVariable Integer id){
         this.userService.deleteUser(id);
+    }
+
+    @GetMapping("/leaderboard")
+    public List<Leaderboard> getLeaderboard(){
+        List<Leaderboard> leaderboard = userService.getLeaderboard();
+        return leaderboard;
     }
 }
 
